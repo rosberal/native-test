@@ -1,0 +1,8 @@
+{
+  "name": "native-test",
+  "app_id": "af9ee069",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
