@@ -1,0 +1,37 @@
+<!--
+  Generated template for the CompassPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color=primary>
+    <ion-title>Compass</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+
+<button ion-button color=primary (click)=startCompass()>Start Compass</button>
+<button ion-button color=primary (click)=stopCompass()>Stop Compass</button>
+
+
+
+<ion-card>Magnetic Heading {{data.magneticHeading}}</ion-card>
+
+<!-- trueHeading	number
+The heading relative to the geographic North Pole in degrees 0-359.99 at a single moment in time. A negative value indicates that the true heading can't be determined. (Number)
+headingAccuracy	number
+The deviation in degrees between the reported heading and the true heading. (Number)
+timestamp
+
+ -->
+
+</ion-content>

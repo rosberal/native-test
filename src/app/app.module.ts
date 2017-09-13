@@ -10,14 +10,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { VibrationPage } from '../pages/vibration/vibration';
 import{ Vibration} from '@ionic-native/vibration';
-
+import {CompassPage} from '../pages/compass/compass'
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-VibrationPage
+    VibrationPage,
+    CompassPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,8 @@ VibrationPage
     MyApp,
     HomePage,
     ListPage,
-VibrationPage
+  VibrationPage,
+  CompassPage
   ],
   providers: [
     StatusBar,
