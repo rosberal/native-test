@@ -58,10 +58,12 @@ compassContinuous(){
      filter: 1
   }  //filtra mudanças menores que 01 grau
   this.continuousMode=true;
-  this.subscription=  this.deviceOrientation.watchHeading(options).subscribe(
+  this.subscription=  this.deviceOrientation.watchHeading().subscribe(
     (data) => {
                 console.log(data)
                 this.compassResults=data;
+
+
               });}
 
 }
