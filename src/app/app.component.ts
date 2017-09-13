@@ -9,6 +9,10 @@ import { ListPage } from '../pages/list/list';
 import { VibrationPage } from '../pages/vibration/vibration';
 
 import { CompassPage } from './../pages/compass/compass';
+import { GeolocationPage } from './../pages/geolocation/geolocation';
+import { GyroscopePage } from './../pages/gyroscope/gyroscope';
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -28,7 +32,9 @@ export class MyApp {
       { title: 'Home', component: HomePage, iconName: "home" },
       { title: 'List', component: ListPage,iconName: "list" },
       { title: 'Vibration', component: VibrationPage,iconName: "pulse" },
-      { title: 'Compass', component: CompassPage,iconName: "compass" }
+      { title: 'Compass', component: CompassPage,iconName: "compass" },
+      { title: 'Geolocation', component: GeolocationPage,iconName: "locate" },
+      { title: 'Gyroscope', component: GyroscopePage,iconName: "add-circle" }
     ];
 
   }

@@ -1,17 +1,25 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+import{ Vibration} from '@ionic-native/vibration';
+import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope';
 
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+
 import { VibrationPage } from '../pages/vibration/vibration';
-import{ Vibration} from '@ionic-native/vibration';
-import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
+
+
 import {CompassPage} from '../pages/compass/compass'
+import { GeolocationPage } from '../pages/geolocation/geolocation';
+import { GyroscopePage } from '../pages/gyroscope/gyroscope';
 
 @NgModule({
   declarations: [
@@ -19,7 +27,10 @@ import {CompassPage} from '../pages/compass/compass'
     HomePage,
     ListPage,
     VibrationPage,
-    CompassPage
+    CompassPage,
+    GeolocationPage,
+    GyroscopePage,
+
   ],
   imports: [
     BrowserModule,
@@ -31,13 +42,17 @@ import {CompassPage} from '../pages/compass/compass'
     HomePage,
     ListPage,
   VibrationPage,
-  CompassPage
+  CompassPage,
+  GeolocationPage,
+  GyroscopePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Vibration,
     DeviceOrientation,
+    Geolocation,
+    Gyroscope,
    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

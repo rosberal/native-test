@@ -22,8 +22,8 @@ import {
 export class CompassPage {
   subscription: any;
   compassResults: DeviceOrientationCompassHeading;
-  //options:DeviceOrientationCompassOptions;
-  continuousMode:boolean=false;
+
+
   constructor(
     public navCtrl: NavController,
      public navParams: NavParams,
@@ -50,14 +50,14 @@ getCompass()
 }
 stopCompass(){
   this.subscription.unsubscribe();
- this.continuousMode=false;
+
 }
 
 compassContinuous(){
   var options = {
      filter: 1
   }  //filtra mudanças menores que 01 grau
-  this.continuousMode=true;
+
   this.subscription=  this.deviceOrientation.watchHeading().subscribe(
     (data) => {
                 console.log(data)

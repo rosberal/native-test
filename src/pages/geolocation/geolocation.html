@@ -1,0 +1,32 @@
+<!--
+  Generated template for the GeolocationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Geolocation</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<button ion-button full color=primary (click)="getGeolocation()">Get Lat Long</button>
+
+<div  *ngIf="geoResults">
+  <h2></h2>
+  <h2>Results</h2>
+    <h2>Magnetic Heading {{geoResults.latitude}}</h2>
+    <h2>True Heading {{geoResults.longitude}}</h2>
+    <h2>Heading Accuracy {{geoResults.accuracy}}</h2>
+    <h2></h2>
+
+  </div>
+
+</ion-content>
