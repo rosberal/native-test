@@ -19,23 +19,22 @@
 
 <ion-content padding>
 
-<button ion-button color=primary (click)=startCompass()>Start Compass</button>
-<button ion-button color=primary (click)=stopCompass()>Stop Compass</button>
+<button ion-button full color=primary (click)=getCompass()>Get Compass</button>
+<button ion-button full color=primary (click)=compassContinuous()>Compass Continuous</button>
 
 
-<div  *ngIf="data">
-
-  <h2>Magnetic Heading {{data.magneticHeading}}</h2>
+<div  *ngIf="compassResults">
+<h2></h2>
+<h2>Results</h2>
+  <h2>Magnetic Heading {{compassResults.magneticHeading}}</h2>
+  <h2>True Heading {{compassResults.trueHeading}}</h2>
+  <h2>Heading Accuracy {{compassResults.headingAccuracy}}</h2>
+  <h2>Time Stamp {{compassResults.timestamp}}</h2>
+  <h2></h2>
 
 </div>
 
-
-<!-- trueHeading	number
-The heading relative to the geographic North Pole in degrees 0-359.99 at a single moment in time. A negative value indicates that the true heading can't be determined. (Number)
-headingAccuracy	number
-The deviation in degrees between the reported heading and the true heading. (Number)
-timestamp
-
- -->
-
+<button ion-button full color=primary (click)=stopCompass() >Stop Compass</button>
 </ion-content>
+
+

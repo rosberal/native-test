@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
+import {
+    DeviceOrientation,
+    DeviceOrientationCompassHeading,
+    DeviceOrientationCompassOptions,
+} from '@ionic-native/device-orientation';
 
 /**
  * Generated class for the CompassPage page.
@@ -17,7 +21,9 @@ import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-nativ
 })
 export class CompassPage {
   subscription: any;
-  data: DeviceOrientationCompassHeading;
+  compassResults: DeviceOrientationCompassHeading;
+  options:DeviceOrientationCompassOptions
+  continuousMode:boolean=false;
   constructor(
     public navCtrl: NavController,
      public navParams: NavParams,
@@ -31,19 +37,29 @@ export class CompassPage {
   }
 
 
-startCompass()
+getCompass()
 {
   this.deviceOrientation.getCurrentHeading().then(
-  (data) => console.log(data),
-  (error: any) => console.log(error)
+  (data) => {
+    this.compassResults=data;
+    console.log(data)
+  },
+  (error: any) => console.log("Erro: ",error)
 );
 
 }
 stopCompass(){
-  this.subscription.unsubscribe();}
+  this.subscription.unsubscribe();
+ this.continuousMode=false;
+}
 
 compassContinuous(){
-  this.subscription=  this.deviceOrientation.watchHeading().subscribe(
-    (data: DeviceOrientationCompassHeading) => console.log(data));}
+  this.options.filter=1;  //filtra mudanças menores que 01 grau
+  this.continuousMode=true;
+  this.subscription=  this.deviceOrientation.watchHeading(this.options).subscribe(
+    (data) => {
+                console.log(data)
+                this.compassResults=data;
+              });}
 
 }
