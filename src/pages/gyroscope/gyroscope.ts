@@ -31,7 +31,7 @@ getGyroscope(){
   .then((orientation) => {
     this.gyroResults=orientation;
 
-    //console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
+    console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
    });
   //.catch()
 
