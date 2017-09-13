@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation,Geoposition } from '@ionic-native/geolocation';
 /**
  * Generated class for the GeolocationPage page.
  *
@@ -15,7 +15,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 })
 export class GeolocationPage {
 
- geoResults: any;
+ geoResults: Geoposition;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      private geolocation:Geolocation

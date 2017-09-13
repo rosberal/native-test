@@ -15,7 +15,7 @@ import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native
   templateUrl: 'gyroscope.html',
 })
 export class GyroscopePage {
-gyroResults: any;
+gyroResults: GyroscopeOrientation;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
     private gyroscope: Gyroscope) {
@@ -33,7 +33,7 @@ getGyroscope(){
 
     console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
    })
-  .catch()
+  //.catch()
 
 }
 

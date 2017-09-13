@@ -22,9 +22,10 @@
 <div  *ngIf="geoResults">
   <h2></h2>
   <h2>Results</h2>
-    <h2>Magnetic Heading {{geoResults.latitude}}</h2>
-    <h2>True Heading {{geoResults.longitude}}</h2>
-    <h2>Heading Accuracy {{geoResults.accuracy}}</h2>
+    <h2>Lat: {{geoResults.coords.latitude}}</h2>
+    <h2>Long: {{geoResults.coords.longitude}}</h2>
+    <h2>Acc:{{geoResults.coords.accuracy}}</h2>
+    <h2>Time Stamp {{geoResults.timestamp}}</h2>
     <h2></h2>
 
   </div>
