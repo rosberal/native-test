@@ -21,7 +21,7 @@
 
 <button ion-button full color=primary (click)=getCompass()>Get Compass</button>
 <button ion-button full color=primary (click)=compassContinuous()>Compass Continuous</button>
-
+<button ion-button full color=primary (click)=stopCompass() >Stop Compass</button>
 
 <div  *ngIf="compassResults">
 <h2></h2>
@@ -34,7 +34,6 @@
 
 </div>
 
-<button ion-button full color=primary (click)=stopCompass() >Stop Compass</button>
 </ion-content>
 
 

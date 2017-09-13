@@ -22,7 +22,7 @@ import {
 export class CompassPage {
   subscription: any;
   compassResults: DeviceOrientationCompassHeading;
-  options:DeviceOrientationCompassOptions
+  //options:DeviceOrientationCompassOptions;
   continuousMode:boolean=false;
   constructor(
     public navCtrl: NavController,
@@ -54,9 +54,11 @@ stopCompass(){
 }
 
 compassContinuous(){
-  this.options.filter=1;  //filtra mudanças menores que 01 grau
+  var options = {
+     filter: 1
+  }  //filtra mudanças menores que 01 grau
   this.continuousMode=true;
-  this.subscription=  this.deviceOrientation.watchHeading(this.options).subscribe(
+  this.subscription=  this.deviceOrientation.watchHeading(options).subscribe(
     (data) => {
                 console.log(data)
                 this.compassResults=data;
