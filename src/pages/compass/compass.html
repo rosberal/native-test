@@ -23,8 +23,12 @@
 <button ion-button color=primary (click)=stopCompass()>Stop Compass</button>
 
 
+<div  *ngIf="data">
 
-<h2 *ngIf="data" >Magnetic Heading {{data.magneticHeading}}</h2>
+  <h2>Magnetic Heading {{data.magneticHeading}}</h2>
+
+</div>
+
 
 <!-- trueHeading	number
 The heading relative to the geographic North Pole in degrees 0-359.99 at a single moment in time. A negative value indicates that the true heading can't be determined. (Number)
