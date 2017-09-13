@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { VibrationPage } from '../pages/vibration/vibration';
 import{ Vibration} from '@ionic-native/vibration';
+import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
 import {CompassPage} from '../pages/compass/compass'
 
 @NgModule({
@@ -35,8 +36,9 @@ import {CompassPage} from '../pages/compass/compass'
   providers: [
     StatusBar,
     SplashScreen,
-Vibration,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Vibration,
+    DeviceOrientation,
+   {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
