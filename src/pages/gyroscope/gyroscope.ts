@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope';
 import { ToastController } from 'ionic-angular';
+import {Platform} from "ionic-angular";
 
 /**
  * Generated class for the GyroscopePage page.
@@ -20,7 +21,8 @@ gyroResults: GyroscopeOrientation;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
     private gyros: Gyroscope,
-    public toastCtrl: ToastController  ) {
+    public toastCtrl: ToastController,
+    public plataform: Platform  ) {
 
     }
 
@@ -30,18 +32,22 @@ gyroResults: GyroscopeOrientation;
 
 getGyroscope(){
 
-  this.gyros.getCurrent().then((orientation: GyroscopeOrientation) => {
-    this.gyroResults=orientation;
+  this.plataform.ready().then((readySource) => {
+            this.gyros.getCurrent().then((orientation: GyroscopeOrientation) => {
+            this.gyroResults=orientation;
+            console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
+            }).catch((error) => {
+                console.log('Erro pegando dados de giroscopio: ', error);
+                  let toast = this.toastCtrl.create({
+                message: 'Erro pegando dados de giroscopio: ' + readySource +"\n"+ error,
+                duration: 3000,
+                position: 'middle'
+                        });
+                 toast.present();
+                      });
 
-    console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
-   }).catch((error) => {
-    console.log('Erro pegando dados de giroscopio: ', error);
-    let toast = this.toastCtrl.create({
-      message: 'Erro pegando dados de giroscopio: ' + error,
-      duration: 3000,
-      position: 'middle'
-    });
-    toast.present();
+
+
 
   });
 
