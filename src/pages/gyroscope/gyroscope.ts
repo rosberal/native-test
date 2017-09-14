@@ -18,7 +18,8 @@ import {Platform} from "ionic-angular";
 })
 export class GyroscopePage {
 gyroResults: GyroscopeOrientation;
-  constructor(public navCtrl: NavController,
+
+constructor(public navCtrl: NavController,
      public navParams: NavParams,
     private gyros: Gyroscope,
     public toastCtrl: ToastController,
@@ -33,7 +34,9 @@ gyroResults: GyroscopeOrientation;
 getGyroscope(){
 
   this.plataform.ready().then((readySource) => {
-            this.gyros.getCurrent().then((orientation: GyroscopeOrientation) => {
+
+           this.gyros.getCurrent().then((orientation: GyroscopeOrientation) => {
+            console.log("GetCurrent Ok");
             this.gyroResults=orientation;
             console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
             }).catch((error) => {
@@ -45,12 +48,20 @@ getGyroscope(){
                         });
                  toast.present();
                       });
-
-
-
-
   });
-
 }
+
+
+
+getGyroscope2(){
+
+  this.gyros.watch()
+.subscribe((orientation: GyroscopeOrientation) => {
+  console.log("watch Ok");
+  this.gyroResults=orientation;
+   console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
+});
+}
+
 
 }
