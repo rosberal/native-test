@@ -18,7 +18,7 @@ export class GyroscopePage {
 gyroResults: GyroscopeOrientation;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-    private gyroscope: Gyroscope) {
+    private gyros: Gyroscope) {
   }
 
   ionViewDidLoad() {
@@ -27,13 +27,13 @@ gyroResults: GyroscopeOrientation;
 
 getGyroscope(){
 
-  this.gyroscope.getCurrent()
-  .then((orientation) => {
+  this.gyros.getCurrent().then((orientation: GyroscopeOrientation) => {
     this.gyroResults=orientation;
 
     console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
-   });
-  //.catch()
+   }).catch((error) => {
+    console.log('Error getting gyroscope', error);
+  });
 
 }
 

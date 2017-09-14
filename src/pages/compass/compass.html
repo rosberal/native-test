@@ -19,9 +19,9 @@
 
 <ion-content padding>
 
-<button ion-button full color=primary (click)=getCompass()>Get Compass</button>
-<button ion-button full color=primary (click)=compassContinuous()>Compass Continuous</button>
-<button ion-button full color=primary (click)=stopCompass() >Stop Compass</button>
+<button *ngIf="!isContinuous"ion-button full color=primary (click)=getCompass()>Get Compass</button>
+<button *ngIf="!isContinuous" ion-button full color=primary (click)=compassContinuous()>Compass Continuous</button>
+<button *ngIf="isContinuous"ion-button full color=primary (click)=stopCompass() >Stop Compass</button>
 
 <div  *ngIf="compassResults">
 <h2></h2>
