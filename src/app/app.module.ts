@@ -29,9 +29,8 @@ import { GyroscopePage } from '../pages/gyroscope/gyroscope';
     VibrationPage,
     CompassPage,
     GeolocationPage,
-    GyroscopePage,
-
-  ],
+    GyroscopePage
+     ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),

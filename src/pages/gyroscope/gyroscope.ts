@@ -32,7 +32,7 @@ getGyroscope(){
 
     console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
    }).catch((error) => {
-    console.log('Error getting gyroscope', error);
+    console.log('Erro pegando dados de giroscopio: ', error);
   });
 
 }

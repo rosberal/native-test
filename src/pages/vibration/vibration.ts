@@ -23,11 +23,11 @@ export class VibrationPage {
 
 vibrate(){
   console.log("Vibrate");
-  this.vibration.vibrate(2000);
+  this.vibration.vibrate(5000);
 
 }
 
-vibratePattern(){
+/* vibratePattern(){
   console.log("VibratePattern");
   this.vibration.vibrate([2000,1000,2000]);
 }
@@ -35,7 +35,7 @@ vibratePattern(){
 vibrateStop(){
   console.log("VibrateStop");
   this.vibration.vibrate(0);
-}
+}*/
 
 ionViewDidLoad() {
     console.log('ionViewDidLoad VibrationPage');

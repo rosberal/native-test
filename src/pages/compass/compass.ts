@@ -54,8 +54,8 @@ this.isContinuous=false;
 }
 
 compassContinuous(){
-  var options:DeviceOrientationCompassOptions = {
-     filter: 1  }
+  let options:DeviceOrientationCompassOptions = {
+     filter: 5  }
   this.isContinuous=true;
 
   //filtra mudanças menores que 01 grau
