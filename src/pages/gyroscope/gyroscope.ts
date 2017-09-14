@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope';
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the GyroscopePage page.
@@ -12,14 +13,16 @@ import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native
 @IonicPage()
 @Component({
   selector: 'page-gyroscope',
-  templateUrl: 'gyroscope.html',
+  templateUrl: 'gyroscope.html'
 })
 export class GyroscopePage {
 gyroResults: GyroscopeOrientation;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-    private gyros: Gyroscope) {
-  }
+    private gyros: Gyroscope,
+    public toastCtrl: ToastController  ) {
+
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GyroscopePage');
@@ -33,6 +36,13 @@ getGyroscope(){
     console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
    }).catch((error) => {
     console.log('Erro pegando dados de giroscopio: ', error);
+    let toast = this.toastCtrl.create({
+      message: 'Erro pegando dados de giroscopio: ' + error,
+      duration: 3000,
+      position: 'middle'
+    });
+    toast.present();
+
   });
 
 }
