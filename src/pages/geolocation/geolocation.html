@@ -25,9 +25,9 @@
     <h2>Lat: {{geoResults.coords.latitude}}</h2>
     <h2>Long: {{geoResults.coords.longitude}}</h2>
     <h2>Acc:{{geoResults.coords.accuracy}}</h2>
-    <h2>Time Stamp {{geoResults.timestamp}}</h2>
-    <h2></h2>
-
+    <h2>Time Stamp: {{geoResults.timestamp}}</h2>
+    <h2>{{convertTimestamp2ISO8602( geoResults.timestamp)}}</h2>
+    <h2>{{convertTimestamp2Date( geoResults.timestamp) | date }}</h2>
   </div>
 
 </ion-content>

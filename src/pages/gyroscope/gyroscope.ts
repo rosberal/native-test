@@ -55,12 +55,13 @@ getGyroscope(){
 
 getGyroscope2(){
 
-  this.gyros.watch()
-.subscribe((orientation: GyroscopeOrientation) => {
-  console.log("watch Ok");
-  this.gyroResults=orientation;
-   console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
-});
+  this.plataform.ready().then((readySource) => {
+      this.gyros.watch().subscribe((orientation: GyroscopeOrientation) => {
+      console.log("watch Ok");
+      this.gyroResults=orientation;
+      console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
+      });
+  });
 }
 
 

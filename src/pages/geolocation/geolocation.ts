@@ -37,5 +37,29 @@ getGeolocation(){
 
 
 }
+//YYYY-MM-DDTHH:mmZ
+convertTimestamp2ISO8602(timestamp:number)
+{
+ let ano:string='',isoString: string='';
+let data=new Date(timestamp)
+isoString=data.toString();
+
+return isoString;
+}
+
+convertTimestamp2Date(timestamp:number)
+{
+ let ano:string='',isoString: string='';
+let data=new Date(timestamp)
+isoString=data.toString();
+
+return data;
+}
+
+
+
+
 
 }
+
+
